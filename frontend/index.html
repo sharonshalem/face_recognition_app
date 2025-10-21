@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎭 Face Recognition System</h1>
+            <p>Capture a photo to identify faces</p>
+        </header>
+
+        <main>
+            <!-- Camera Section -->
+            <div class="camera-section">
+                <div class="video-container">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                </div>
+                
+                <div class="controls">
+                    <button id="startCamera" class="btn btn-primary">
+                        📷 Start Camera
+                    </button>
+                    <button id="captureBtn" class="btn btn-success" disabled>
+                        📸 Capture & Recognize
+                    </button>
+                    <button id="stopCamera" class="btn btn-danger" disabled>
+                        ⏹️ Stop Camera
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2>Recognition Results</h2>
+                <div id="status" class="status">Ready to recognize faces</div>
+                <div id="results" class="results-container"></div>
+            </div>
+
+            <!-- Background Removal Section -->
+            <div class="bg-removal-section">
+                <h2>Background Removal</h2>
+                <p>Upload an image and choose a background color</p>
+
+                <div class="upload-container">
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    <button id="uploadBtn" class="btn btn-primary">
+                        📁 Upload Image
+                    </button>
+
+                    <div class="color-picker-container">
+                        <label for="colorPicker">Background Color:</label>
+                        <input type="color" id="colorPicker" value="#FFFFFF">
+                        <span id="colorValue">#FFFFFF</span>
+                    </div>
+
+                    <button id="removeBgBtn" class="btn btn-success" disabled>
+                        ✨ Remove Background
+                    </button>
+                </div>
+
+                <div class="image-preview-container">
+                    <div class="preview-box">
+                        <h4>Original Image</h4>
+                        <img id="originalImage" style="display: none; max-width: 100%; border-radius: 10px;">
+                        <p id="originalPlaceholder">No image uploaded</p>
+                    </div>
+                    <div class="preview-box">
+                        <h4>Processed Image</h4>
+                        <img id="processedImage" style="display: none; max-width: 100%; border-radius: 10px;">
+                        <p id="processedPlaceholder">Process an image to see result</p>
+                        <button id="downloadBtn" class="btn btn-primary" style="display: none; margin-top: 10px;">
+                            💾 Download
+                        </button>
+                    </div>
+                </div>
+
+                <div id="bgStatus" class="status">Ready to remove background</div>
+            </div>
+
+            <!-- Known Faces Section -->
+            <div class="known-faces-section">
+                <h3>Known Faces</h3>
+                <div id="knownFaces" class="known-faces-list">
+                    <p class="loading">Loading known faces...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Face Recognition API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
