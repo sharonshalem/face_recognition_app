@@ -21,10 +21,10 @@ def convert_to_rgb(image_path):
         os.remove(image_path)
         os.rename(new_path, image_path)
         
-        print(f"✓ Fixed and saved {os.path.basename(image_path)}")
-            
+        print(f"[OK] Fixed and saved {os.path.basename(image_path)}")
+
     except Exception as e:
-        print(f"✗ Error with {os.path.basename(image_path)}: {e}")
+        print(f"[ERROR] Error with {os.path.basename(image_path)}: {e}")
 
 def main():
     known_faces_dir = 'known_faces'
