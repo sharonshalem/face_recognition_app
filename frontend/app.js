@@ -2,7 +2,7 @@
 // Use environment variable or default to localhost
 const API_URL = window.location.hostname === 'localhost'
     ? 'http://localhost:5000'
-    : `http://${window.location.hostname}:5000`;
+    : '/api';  // Use reverse proxy path for production
 
 // DOM Elements
 const video = document.getElementById('video');
